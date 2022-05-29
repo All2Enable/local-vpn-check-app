@@ -14,3 +14,4 @@ Deploying:
 2. look for secret_key and change it to the one you need(it shoud go to enviroment variables)
 3. open terminal and write python3 manage.py check --deploy
 4. after that change "Debug" to false
+5. change "allowed_hosts" variable to your site address
