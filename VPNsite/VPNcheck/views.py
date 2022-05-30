@@ -8,7 +8,7 @@ def index(request):
     if (request.method == 'POST'):
         url = 'https://ifconfig.io/ip'
         r = requests.get(url)
-        path = '/home/___/monitor.ovpn'
+        path = '/code/monitor.ovpn'
         # your path to server cfg file
         process = subprocess.Popen(f"sudo openvpn --auth-nocache --config {path}", shell=True)
         time.sleep(5)
