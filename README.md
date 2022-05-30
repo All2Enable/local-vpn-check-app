@@ -17,8 +17,8 @@ Deploying:
 # Run in Docker:
 1. Clone repo \
 `git clone https://github.com/devSLAVUS/local-vpn-check-app.git` \
-`cd local-vpn-check-app/` 
-add .ovpn file to root directory (local-vpn-check-app/)
+`cd local-vpn-check-app/` \
+add .ovpn file to root directory (local-vpn-check-app/) \
 2. Build image \
 `docker build --tag devmaxfork:latest .` 
 3. Run image \
