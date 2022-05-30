@@ -29,6 +29,8 @@ DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://devmax.devslavus.xyz']
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -11,7 +11,7 @@
 <body>
 <div class="container mt-5">
     <h1>Проверка ВПН</h1>
-    <div class="row">
+    <div class="row mt-4">
         <!--            <div class="col-5 offset-1">-->
         <!--                <form action="">-->
         <!--                    <label for="vpnserver">Сервер впн</label>-->
@@ -20,16 +20,26 @@
         <!--                    <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">-->
         <!--                </form>-->
         <!--            </div>-->
-        <div class="col-4 offset-1">
+        <div class="col-md">
             <h1>Список серверов</h1>
             <form action="" method="post">
                 {% csrf_token %}
-                <label for="server">OpenVPN</label>
-                <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+                <label for="server">OpenVPN</label><br>
+                <input type="submit" name="send" value="Проверить" class="btn btn-secondary">
             </form>
-            <div class="alert alert-danger">
-                <b>Статус сервера:</b> {{ info }}<br>
-            </div>
+            {% if 'Nice' in info %}
+                <div class="alert mt-1 alert-success">
+                    <b>Статус сервера:</b> 'Nice one!'
+                </div>
+            {% elif info %}
+                <div class="alert mt-1 alert-danger">
+                    <b>Статус сервера:</b> 'Man, cringe...'
+                </div>
+            {% else %}
+                <div class="alert mt-1 alert-secondary">
+                    <b>Статус сервера:</b>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

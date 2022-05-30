@@ -1,8 +1,9 @@
 import requests, subprocess, time
-
+from django.shortcuts import render
 
 def index(request):
-    result = 'none'
+    result = 0
+
 
     if (request.method == 'POST'):
         url = 'https://ifconfig.io/ip'
@@ -15,11 +16,10 @@ def index(request):
         process.kill()
         if r.text != r2.text:
             subprocess.run("sudo killall openvpn", shell=True)
-#надо килять коннект при успехе, иначе  докер контейнер падаетfrom django.shortcuts import render
-            result = 'NICE ONE!'
+            result = 'Nice one!'
 
         else:
-            result = 'man, cringe...'
+            result = 'Man, cringe...'
         subprocess.run("sudo killall openvpn", shell=True)
 
         context = {'info': result}
