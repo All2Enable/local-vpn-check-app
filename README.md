@@ -18,9 +18,14 @@ Deploying:
 1. Clone repo \
 `git clone https://github.com/devSLAVUS/local-vpn-check-app.git` \
 `cd local-vpn-check-app/` 
+add .ovpn file to root directory (local-vpn-check-app/)
 2. Build image \
 `docker build --tag devmaxfork:latest .` 
 3. Run image \
 `docker run --name devmax_site_fork -d -p 8999:8999 --cap-add=NET_ADMIN --device /dev/net/tun devmax:latest` 
 4. Check \
 `curl 127.0.0.1:8999` 
+
+#Fix errors \
+If something wrong go inside container and check vpn and internet connection: \
+`docker exec -it devmax_site_fork bash`
