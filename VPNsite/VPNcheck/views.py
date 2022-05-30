@@ -1,4 +1,3 @@
-from django.shortcuts import render
 import requests, subprocess, time
 
 
@@ -15,7 +14,10 @@ def index(request):
         r2 = requests.get(url)
         process.kill()
         if r.text != r2.text:
+            subprocess.run("sudo killall openvpn", shell=True)
+#надо килять коннект при успехе, иначе  докер контейнер падаетfrom django.shortcuts import render
             result = 'NICE ONE!'
+
         else:
             result = 'man, cringe...'
         subprocess.run("sudo killall openvpn", shell=True)
